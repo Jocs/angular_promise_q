@@ -1,0 +1,26 @@
+{
+  "name": "angular_promise_q",
+  "description": "learn angular q service",
+  "main": "index.js",
+  "authors": [
+    "ransixi"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "$q",
+    "angular"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7"
+  }
+}

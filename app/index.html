@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div ng-controller="Example1Controller">
+		<h4>一、$q服务的基本用法之resolve、notify、then的使用</h4>
+		<pre>
+		$q.defer()方法用于创建一个延迟对象。
+		该延迟对象上面有三个方法，resolve(),reject(), notify()方法。同时该延迟对象
+		上面还有一个promise属性，这是一个promise对象。其中重点讲解下，notify() 方法，
+		在讲解notify（）方法前我们需要知道promise对象的三种状态，pending、resolved（fullfilled）、
+		rejected三种状态，notify方法可以被多次被调用，（而resolve、reject方法两个方法只有
+		一个会可能会被执行）。
+		</pre>
+		成功或失败由您决定？
+		<input type="checkbox" ng-model='boolean'>
+		<button ng-click="get()">GetData</button>
+		<div>下载进度：{{progress}}%</div>
+		<div>data:{{data}}</div>
+	</div>
+	<div ng-controller="Example2Controller">
+		<h4>二、$q服务基本用法之reject、catch方法的使用</h4>
+		<pre>
+		catch方法其实是then方法第二个参数的简写，用来处理Refer对象reject的情况，也就是说Refer对象调用reject（）方法是，
+		catch方法中的回调函数会被调用。
+		<div>请求被：{{reson}}</div>
+		</pre>
+	</div>
+	<div ng-controller="Example3Controller">
+		<h4>三、$q服务基本用法之when、all方法的使用</h4>
+		<pre>
+		这两个方法都是直接定义在$q服务上面的，可以用过如下方式调用，$q.all(),$q.when();
+		1)$q.all()方法的使用：该方法接受一个数组或者对象作为参数，你可以选择你喜欢的数据类型。它们通常是等价的。这儿以
+		数组为例。数组元素是并行处理的promise对象，只有当他们都处理结束后，then方法中的回调函数才会被调用。当参数数组中
+		的promise对象其中一个被reject后，then方法的第二个参数将会被执行，且仅仅返回reject的结果。error.
+		2)$q.when()。该方法主要是用于一个不能确定是否是promise对象的场景。
+		</pre>
+	</div>
+	<div ng-controller="Example4Controller">
+		<h4>四、$q服务基本用法之链式调用</h4>
+		<div>{{info}}</div>
+	</div>
+
+	<script src='bower/angular/angular.js'></script>
+	<script src='app.js'></script>
+</body>
+</html>
